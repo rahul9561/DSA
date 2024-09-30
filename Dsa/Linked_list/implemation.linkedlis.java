@@ -8,6 +8,14 @@ public class Main
 		l.insert(5);
 		l.insert(6);
 		l.display();
+		System.out.println();
+		System.out.print(l.size());
+		l.delete(2);
+		System.out.println();
+		l.display();
+			System.out.println();
+		l.insertAtpoint(2,7);
+		l.display();
 	}
 }
 
@@ -42,5 +50,31 @@ class Linked{
                 System.out.print(temp.data+" ");
                 temp=temp.next;
             }
+        }
+        
+        int size(){
+            int count=0;
+            Node temp=head;
+            while(temp!=null){
+                count++;
+                temp=temp.next;
+            }
+            return count;
+        }
+        void delete(int idk){
+            Node temp=head;
+            for(int i=1;i<idk-1;i++){
+                temp=temp.next;
+            }
+            temp.next=temp.next.next;
+        }
+        void insertAtpoint(int idk,int data){
+             Node s=new Node(data);
+            Node temp=head;
+            for(int i=1;i<idk-1;i++){
+                temp=temp.next;
+            }
+            s.next=temp.next;
+            temp.next=s;
         }
 }
